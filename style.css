@@ -20,11 +20,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Use min-height: 100vh for full-screen on desktop/mobile */
+    /* Use 100vh for full-screen on desktop/mobile */
     min-height: 100vh;
     margin: 0;
     text-align: center;
-    /* Add padding to the body for space on the edges of small screens */
     padding: 10px; 
 }
 
@@ -120,7 +119,7 @@ body {
 
 .input-section label {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: var(--secondary-color);
     font-weight: 600;
 }
@@ -182,15 +181,17 @@ body {
     padding-top: 10px;
 }
 
+/* ------------------------------------- */
 /* --- Mobile Specific Optimization --- */
+/* ------------------------------------- */
 @media (max-width: 450px) {
+    /* Use a viewport-relative height for the container, which is generally more stable */
     .container {
-        /* Use more horizontal space on small screens */
         width: 100%; 
         padding: 20px;
         margin: 0;
-        border-radius: 0; /* Optional: remove rounded corners on very small screens for better fit */
-        min-height: 100vh; /* Make the container fill the whole screen height */
+        border-radius: 0; 
+        min-height: 100dvh; /* Use 100dvh for stable mobile height calculation */
     }
 
     .title-box {
@@ -200,7 +201,13 @@ body {
     .title-box h1 {
         font-size: 1.5em;
     }
-
+    
+    /* FIX: When the keyboard is up, ensure the input stays visible by allowing scroll on the body/container */
+    body {
+        /* Remove alignment to allow content to flow/scroll when keyboard is up */
+        align-items: flex-start; 
+    }
+    
     /* Stack the input and button vertically on very small screens for better touch targets */
     .input-and-button {
         flex-direction: column;
