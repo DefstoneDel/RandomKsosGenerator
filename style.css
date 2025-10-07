@@ -108,6 +108,14 @@ body {
 .roll-button:active {
     transform: scale(0.98);
 }
+/* NEW: Explicitly define the disabled state */
+.roll-button:disabled {
+    background-color: #555555; /* Dark gray for disabled */
+    border-color: #777777;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7; /* Optional: Make it slightly transparent */
+}
 
 /* --- Input Section Styling --- */
 .input-section {
