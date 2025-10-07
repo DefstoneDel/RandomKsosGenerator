@@ -1,6 +1,6 @@
 :root {
     --primary-color: #3A3A94; /* A vibrant light purple for primary accents */
-    --secondary-color: #03dac6; /* A bright teal/cyan for highlights */
+    --secondary-color: #146ECC; /* A bright teal/cyan for highlights */
     --background-color: #121212; /* Very dark background */
     --container-bg: #141436; /* Slightly lighter dark for the main card */
     --text-color: #e0e0e0; /* Light text for readability on dark */
@@ -8,6 +8,9 @@
     --roll-display-bg: #2a2a2a; /* Darker background for roll display */
     --title-box-bg: #232354; /* A deep purple for the title box */
     --title-box-text: #ffffff; /* White text for the title */
+    --input-bg: #333; /* Dark background for input */
+    --input-border: #555; /* Light border for contrast */
+    --name-status-color: #999; /* Grey for status text */
 }
 
 body {
@@ -26,13 +29,13 @@ body {
     background: var(--container-bg);
     padding: 40px 60px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow for contrast */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     max-width: 400px;
     width: 90%;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle light border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- Title Box Styling --- */
+/* --- Title Box Styling (Color Box Requirement) --- */
 .title-box {
     background-color: var(--title-box-bg);
     color: var(--title-box-text);
@@ -40,12 +43,12 @@ body {
     margin-bottom: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--primary-color); /* Add a border matching primary color */
+    border: 1px solid var(--primary-color);
 }
 
 .title-box h1 {
-    color: var(--title-box-text); /* Ensure the heading text inside is white */
-    margin: 0; /* Remove default margin for h1 inside the box */
+    color: var(--title-box-text);
+    margin: 0;
     font-size: 1.8em;
 }
 
@@ -55,25 +58,25 @@ body {
     padding: 15px;
     border: 2px solid var(--primary-color);
     border-radius: 8px;
-    background-color: var(--roll-display-bg); /* Darker background */
+    background-color: var(--roll-display-bg);
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .roll-label {
-    color: var(--secondary-color); /* Make label more noticeable */
+    color: var(--secondary-color);
 }
 
 .result-text {
     font-size: 2.5em;
     font-weight: bold;
-    color: var(--text-color); /* Ensure readability */
+    color: var(--text-color);
     min-height: 1.2em;
     transition: color 0.5s ease-in-out;
 }
 
 .result-text.myth {
     color: var(--myth-color);
-    text-shadow: 0 0 15px rgba(255, 235, 59, 0.7); /* Brighter glow */
+    text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
 }
 
 /* --- Circular Button Design --- */
@@ -85,17 +88,18 @@ body {
     color: white;
     font-size: 1.2em;
     font-weight: bold;
-    border: 8px solid var(--secondary-color); /* High contrast border */
+    border: 8px solid var(--secondary-color);
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
     margin-top: 20px;
-    text-transform: uppercase; /* Make button text more prominent */
+    margin-bottom: 30px; 
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .roll-button:hover {
-    background-color: #D40906; /* Slightly darker primary on hover */
+    background-color: #D40906;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -104,12 +108,74 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
+/* --- Input Section Styling --- */
+.input-section {
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 15px;
+    background: var(--roll-display-bg);
+}
+
+.input-section label {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.input-and-button {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 10px;
+}
+
+#userNameInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box; 
+    transition: border-color 0.3s;
+}
+
+#userNameInput:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+}
+
+/* Small Button Style (Add Choice) */
+.small-button {
+    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    color: var(--background-color); 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.small-button:hover {
+    background-color: #00f1e0;
+}
+
+.name-status {
+    margin-top: 5px;
+    color: var(--name-status-color);
+    font-size: 0.9em;
+    text-align: right;
+}
+
 /* --- Secret Message --- */
 .secret-message {
     margin-top: 30px;
     font-style: italic;
-    color: #a0a0a0; /* Lighter grey for visibility */
+    color: #a0a0a0;
     font-size: 0.8em;
-    border-top: 1px dashed #444; /* Darker dashed line */
+    border-top: 1px dashed #444;
     padding-top: 10px;
 }
